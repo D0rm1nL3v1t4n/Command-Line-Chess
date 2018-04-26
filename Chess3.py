@@ -1,6 +1,9 @@
 from square_class import Square
 from piece_class import Piece
 from king_class import King
+
+from knight_class import Knight
+
 import random
 
 
@@ -54,23 +57,7 @@ def gameStart(player, chessBoard):
             if pieceSelected.lower() == srcSqr[0]:
 
                 for dstSqr in chessBoard:
-                    if pieceDestination.lower() == dstSqr[0]:
-
-                        """
-                        Need to pass function in Piece Subclass to check canMove() for specific Piece type --> canMove() varies depending on Piece
-                        dstSqr[1].CanMove()
-                        
-                        
-                        DESTINATION:
-                        # 1 = X Coordinate
-                        # 2 = Y Coordinate
-                        # 3 = Destination Square code
-
-
-                        # 4 = Colour of piece in 3
-                        OR 3 is entered as an array with all properties for that Square --> and therefore Piece colour (if present)                        
-                        
-                        """
+                    if pieceDestination.lower() == dstSqr[0]:                      
                         
                         dstSqr[1].PutPiece(srcSqr[1].piece)
 
@@ -81,6 +68,7 @@ def gameStart(player, chessBoard):
 
 
 def showBoard():
+    print("  A  B  C  D  E  F  G  H")
     print("8|"+a8.ReturnMe()+"|"+b8.ReturnMe()+"|"+c8.ReturnMe()+"|"+d8.ReturnMe()+"|"+e8.ReturnMe()+"|"+f8.ReturnMe()+"|"+g8.ReturnMe()+"|"+h8.ReturnMe()+"|")
     print("7|"+a7.ReturnMe()+"|"+b7.ReturnMe()+"|"+c7.ReturnMe()+"|"+d7.ReturnMe()+"|"+e7.ReturnMe()+"|"+f7.ReturnMe()+"|"+g7.ReturnMe()+"|"+h7.ReturnMe()+"|")
     print("6|"+a6.ReturnMe()+"|"+b6.ReturnMe()+"|"+c6.ReturnMe()+"|"+d6.ReturnMe()+"|"+e6.ReturnMe()+"|"+f6.ReturnMe()+"|"+g6.ReturnMe()+"|"+h6.ReturnMe()+"|")
@@ -181,8 +169,8 @@ h8 = Square("h8")
 
 rookWhite_a = Piece("Rook","White","Rw")
 rookWhite_b = Piece("Rook","White","Rw")
-knightWhite_a = Piece("Knight","White","Nw")
-knightWhite_b = Piece("Knight","White","Nw")
+knightWhite_a = Knight("Knight","White","Nw")
+knightWhite_b = Knight("Knight","White","Nw")
 bishopWhite_a = Piece("Bishop","White","Bw")
 bishopWhite_b = Piece("Bishop","White","Bw")
 kingWhite = King("King","White","Kw")
@@ -199,8 +187,8 @@ pawnWhite_h = Piece("Pawn","White","Pw")
 
 rookBlack_a = Piece("Rook","Black","Rb")
 rookBlack_b = Piece("Rook","Black","Rb")
-knightBlack_a = Piece("Knight","Black","Nb")
-knightBlack_b = Piece("Knight","Black","Nb")
+knightBlack_a = Knight("Knight","Black","Nb")
+knightBlack_b = Knight("Knight","Black","Nb")
 bishopBlack_a = Piece("Bishop","Black","Bb")
 bishopBlack_b = Piece("Bishop","Black","Bb")
 kingBlack = King("King","Black","Kb")
